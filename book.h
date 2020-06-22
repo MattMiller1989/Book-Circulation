@@ -1,11 +1,8 @@
 #pragma once
 //include header files
-#include <stdio.h>
-#include <string>
-#include <vector>
-#include "Date.h"
-#include "PriorityQueue.cpp"
-#include "employee.cpp"
+
+#include "PriorityQueue.h"
+#include "employee.h"
 using namespace std;
 
 //declare class
@@ -23,7 +20,7 @@ private:
 
 public:
 	//member functions
-	Book(string& name);
+	Book(string name);
 	string& getName();
 	Date& getStartDate();
 	Date& getEndDate();
