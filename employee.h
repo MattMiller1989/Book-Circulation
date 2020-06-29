@@ -1,10 +1,10 @@
 #pragma once
-//include header files
+
 #include <stdio.h>
 #include <string>
 #include "Date.h"
 using namespace std;
-//declare class
+
 class Employee
 {
 private:
@@ -12,17 +12,23 @@ private:
 	string name;
 	int waitTime;
 	int retainTime;
+	bool has_book;
+
+
 public:
-	//member functions
-	Employee();
+	
+	
 	Employee(string newName);
-	const Employee& operator = (const Employee& rhs);
-	void setName(string newName);
-	void wait(int wait);
-	void retain(int retain);
 	string getName();
 	int getWait();
 	int getRetain();
+	int priority();
+	void update_priority();
+	void recieve_book(Date date);
+	void pass_book(Date date);
+	const Employee& operator = (const Employee& rhs);
+	
+	
 	friend bool operator<(const Employee& lhs, const Employee& rhs);
 	friend bool operator>(const Employee& lhs, const Employee& rhs);
 };

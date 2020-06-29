@@ -7,31 +7,26 @@ Book::Book(string newName) {
 
 }
 //attribute getter methods
-string& Book::getName() {
+string& Book::get_name() {
 	return name;
 }
 
-Date& Book::getStartDate() {
-	return startDate;
-}
-Date& Book::getEndDate() {
-	return endDate;
-}
 
-void Book::circulateBook(Date& circDate, vector<Employee*> employees)
+
+void Book::circulate_book(Date& circDate, vector<Employee*> employees)
 {
-	PriorityQueue employeeQueue = fillQueue(employees);
+	PriorityQueue employeeQueue = fill_queue(employees);
 
 }
 
-PriorityQueue& Book::fillQueue(vector<Employee*> employees)
+PriorityQueue& Book::fill_queue(vector<Employee*> employees)
 {
 	PriorityQueue employeeQueue;
 
 	vector<Employee*>::iterator it;
 
 	for (it = employees.begin(); it != employees.end(); it++) {
-		employeeQueue.addEmployee(*it);
+		employeeQueue.push(*it);
 
 	}
 	

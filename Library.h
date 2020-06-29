@@ -4,32 +4,27 @@
 
 #include "PriorityQueue.h"
 #include "employee.h"
+#include "book.cpp"
+#include "Date.h"
 using namespace std;
 
 //declare class
-class Book
+class Library
 {
 private:
 	//data members
-	string name;
-	Date startDate;
-	Date endDate;
-	bool isArchived;
-
-
-
+	vector<Book*> books;
+	vector<Employee*> employees;
+	
 
 public:
 	//member functions
-	Book(string name);
-	string& getName();
-	Date& getStartDate();
-	Date& getEndDate();
+	
 
-	void circulateBook(Date& circDate, vector<Employee*> employees);
-	PriorityQueue& fillQueue(vector<Employee*> employees);
-
-
-
+	void circulate_book(string name, Date date);
+	void add_book(string name);
+	void add_employee(string name);
+	void pass_on(string name, Date date);
+	
 
 };

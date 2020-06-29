@@ -11,22 +11,23 @@ class Book
 private:
 	//data members
 	string name;
-	Date startDate;
-	Date endDate;
-	bool isArchived;
+	Date circulation_start;
+	Date circulation_end;
+	bool is_archived;
+	PriorityQueue employee_priority;
 	
-
+	
 
 
 public:
 	//member functions
 	Book(string name);
-	string& getName();
-	Date& getStartDate();
-	Date& getEndDate();
+	string& get_name();
+	//Date& getStartDate();
+	//Date& getEndDate();
 	
-	void circulateBook(Date& circDate, vector<Employee*> employees);
-	PriorityQueue& fillQueue(vector<Employee*> employees);
+	void circulate_book(Date& circDate, vector<Employee*> employees);
+	PriorityQueue& fill_queue(vector<Employee*> employees);
 
 	
 

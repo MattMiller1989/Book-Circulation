@@ -15,8 +15,9 @@ private:
 public:
 	//member functions
 	PriorityQueue();
-	void addEmployee(Employee* temp);
-	Employee* pop_max();
+	void push(Employee* temp);
+	Employee* pop();
 	Employee* top();
 	bool empty();
+	void update();
 };

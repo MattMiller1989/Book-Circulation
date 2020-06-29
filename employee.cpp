@@ -1,12 +1,6 @@
-//inlcude hedaer files
+
 #include "employee.h"
-//constructor
-Employee::Employee() {
-	name = "unknown";
-	waitTime = 0;
-	retainTime = 0;
-}
-//paremetrized constructor
+
 Employee::Employee(string newName) {
 	name = newName;
 	waitTime = 0;
@@ -18,18 +12,7 @@ const Employee& Employee::operator = (const Employee& rhs) {
 	retainTime = rhs.retainTime;
 	return *this;
 }
-void Employee::setName(string newName) {
-	name = newName;
-}
-void Employee::wait(int wait) {
-	waitTime += wait;
-}
-void Employee::retain(int retain) {
-	retainTime += retain;
-}
-string Employee::getName() {
-	return name;
-}
+
 int Employee::getWait() {
 	return waitTime;
 }
