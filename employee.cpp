@@ -1,31 +1,26 @@
+#include "Employee.h"
 
-#include "employee.h"
-
-Employee::Employee(string newName) {
-	name = newName;
-	waitTime = 0;
-	retainTime = 0;
+Employee::Employee(string new_name) {
+	name = new_name;
+	wait_time = 0;
+	retain_time = 0;
 }
-const Employee& Employee::operator = (const Employee& rhs) {
-	name = rhs.name;
-	waitTime = rhs.waitTime;
-	retainTime = rhs.retainTime;
-	return *this;
+Employee::Employee(string new_name,int new_priority) {
+	name = new_name;
+	wait_time = 0;
+	retain_time = 0;
+	temp_priority = new_priority;
 }
-
-int Employee::getWait() {
-	return waitTime;
+string Employee::get_name() {
+	return name;
 }
-int Employee::getRetain() {
-	return retainTime;
+int Employee::priority() {
+	//return wait_time - retain_time;
+	return temp_priority;
 }
-bool operator<(const Employee& lhs, const Employee& rhs)
-{
-	return ((lhs.waitTime - lhs.retainTime) < (rhs.waitTime - rhs.retainTime));
+bool operator<(Employee& lhs, Employee& rhs) {
+	return lhs.priority() < rhs.priority();
 }
-bool operator>(const Employee& lhs, const Employee& rhs)
-{
-	return ((lhs.waitTime - lhs.retainTime) > (rhs.waitTime - rhs.retainTime));
+bool operator>(Employee& lhs, Employee& rhs) {
+	return lhs.priority() > rhs.priority();
 }
-
-
