@@ -14,10 +14,17 @@ Employee::Employee(string new_name,int new_priority) {
 string Employee::get_name() {
 	return name;
 }
+void Employee::receive_book(int curr_wait) {
+	wait_time += curr_wait;
+}
+void Employee::pass_book(int curr_retain) {
+	retain_time += curr_retain;
+}
 int Employee::priority() {
 	//return wait_time - retain_time;
 	return temp_priority;
 }
+
 bool operator<(Employee& lhs, Employee& rhs) {
 	return lhs.priority() < rhs.priority();
 }
