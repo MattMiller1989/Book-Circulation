@@ -1,34 +1,29 @@
 #pragma once
-
-#include <stdio.h>
 #include <string>
-#include "Date.h"
+#include <sstream>
 using namespace std;
 
-class Employee
-{
+class Employee {
 private:
-	//data members
 	string name;
-	int waitTime;
-	int retainTime;
-	bool has_book;
-
+	int wait_time;
+	int retain_time;
+	int temp_priority;
 
 public:
 	
-	
-	Employee(string newName);
-	string getName();
-	int getWait();
-	int getRetain();
+	Employee(string new_name);
+	Employee(string new_name,int new_priority);
+	string get_name();
 	int priority();
-	void update_priority();
-	void recieve_book(Date date);
-	void pass_book(Date date);
-	const Employee& operator = (const Employee& rhs);
-	
-	
-	friend bool operator<(const Employee& lhs, const Employee& rhs);
-	friend bool operator>(const Employee& lhs, const Employee& rhs);
+	friend bool operator<(Employee& lhs, Employee& rhs);
+	friend bool operator>(Employee& lhs, Employee& rhs);
+
+	const string to_string() const { //toString method just for testing 
+		ostringstream buffer;
+		buffer << "Name: " << name << ", Priority: " << temp_priority << endl;
+		//return name +" "+ to_string(temp_priority); 
+
+		return buffer.str();
+	}
 };
