@@ -18,11 +18,31 @@ void circulate_book(string book_name, Date circ_date) {
 	}
 	else {
 		Book* curr_book = books[ind];
+		curr_book.fill_queue(employees);
+		
+		curr_book.circulate(circ_date);
 
 	}
 }
 void pass_on(string book_name, Date pass_date) {
+	int ind = find_ind(book_name, books);
+	if (ind == -1) {
+		cout << book_name << " does not exist " << endl;
+	}
+	else {
+		
+		Book* curr_book = books[ind];
+		if (curr_book.to_archive()) {
+			archive.push(curr_book);
+			books.erase(ind);
+		}
+		else{
+			curr_book.fill_queue(employees);
+			curr_book.pass(pass_date - curr_book.get_start());
+		}
+		
 
+	}
 }
 template <typename type>
 int find_ind(string name, vector<type> vec) { // returns index of book or employee
