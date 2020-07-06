@@ -5,6 +5,7 @@
 //include header files
 #include <string>
 #include "PriorityQueue.h"
+#include "PriorityQueue.cpp"
 #include <list>
 #include "Date.h"
 #include "employee.h"
@@ -24,10 +25,10 @@ private:
 
 public:
 
-	Book();
+	
 	Book(string bookName);
 	Book(string bookName, Date start);
-	Book(const Book& other);
+	
 
 	string getname();
 
@@ -37,14 +38,15 @@ public:
 	Date getHeld();
 	void setname(string newName);
 	void setstartDate(Date newDate);
-	void setendDate(Date newDate);
-	void setarchived(bool newBool);
-	void setHeld(Date date);
-	void populate_queue(list<Employee*> empList);
+	//void setendDate(Date newDate);
+	//void setarchived(bool newBool);
+	//void setHeld(Date date);
+	void populate_queue(vector<Employee> empList);
+	void circulate(Date circ_date);
+	bool to_archive();
+	void pass(int days_passed);
 
-	Employee* pop_max();
-	Employee* top();
-	bool isEmpty();
+	
 
 };
 

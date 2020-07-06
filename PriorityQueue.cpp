@@ -14,9 +14,9 @@ void PriorityQueue<type>::push(type element) {
 }
 
 template <typename type>
-void PriorityQueue<type>::pop() {
+void PriorityQueue<type>::pop() {	//removes the first element in the queue... Also checks to see if Queue is empty
 
-	if (size > 0) {
+	if (!empty()){
 		data.erase(data.begin());
 	}
 	else {
@@ -41,14 +41,18 @@ void PriorityQueue<type>::update() {		//sorts the items by a comparable value...
 
 }
 template <typename type>
-type* PriorityQueue<type>::front() {
+type* PriorityQueue<type>::front() { //returns a pointer to the front of the priority queue
 	return &data[0];
 }
 template <typename type>
-void PriorityQueue<type>::print_queue() {
+void PriorityQueue<type>::print_queue() { //Prints each item in the queue. For testing purposes
 	for (int x = 0; x < data.size(); x++) {
 		cout << data[x] << " ";
 	}
 	cout << "\n";
+}
+template <typename type>
+bool PriorityQueue<type>::empty() { //Checks to see if Pqueue is empty
+	return size == 0;
 }
 

@@ -1,9 +1,7 @@
 
 
 #include "book.h"
-Book::Book()
-{
-}
+
 
 //parametrized constructor
 Book::Book(string bookName)
@@ -15,14 +13,14 @@ Book::Book(string bookName, Date start) {
 	name = bookName;
 	startDate = start;
 }
-
+/*
 Book::Book(const Book& other) {
 	name = other.name;
 	startDate = other.startDate;
 	endDate = other.endDate;
 	archived = other.archived;
 	wa = other.wa;
-}
+}*/
 
 //implement getter and setters
 string Book::getname()
@@ -61,6 +59,7 @@ void Book::setstartDate(Date newDate)
 	startDate = lastHeld = newDate;
 }
 
+/*
 void Book::setendDate(Date newDate)
 {
 	endDate = newDate;
@@ -75,31 +74,34 @@ void Book::setHeld(Date date)
 {
 	lastHeld = date;
 }
-
-//add list to queue
-void Book::populate_queue(const list<Employee*> empList)
+*/
+//add vector to queue
+void Book::populate_queue( vector<Employee> empList)
 {
-	list<Employee*>::const_iterator it;
+	vector<Employee>::const_iterator it;
 	for (it = empList.begin(); it != empList.end(); it++)
 	{
-		wa.addEmployee(*it);
+		wa.push(*it);
 	}
 }
-
-//pop the element
-Employee* Book::pop_max()
-{
-	return wa.pop_max();
-}
-
-//get the top of the queue
-Employee* Book::top()
-{
-	return wa.top();
-}
-
-bool Book::isEmpty()
-{
+bool Book::to_archive() {
 	return wa.empty();
 }
+void Book::circulate(Date circ_date) {
+	setstartDate(circ_date);
+	wa.front()->receive_book(0);
+
+}
+void Book::pass(int days_passed) {
+	wa.front()->pass_book(days_passed);
+	wa.pop();
+	wa.update(); //updates the queue before passing book
+	wa.front()->receive_book(days_passed);
+
+
+	
+}
+
+
+
 

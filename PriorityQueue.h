@@ -23,6 +23,7 @@ public:
 	void update();
 	type* front();
 	void print_queue();
+	bool empty();
 
 
 };
