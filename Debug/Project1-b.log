@@ -1,4 +1,6 @@
-﻿  Library.cpp
-C:\Users\Matt\Desktop\CppFiles\Project1-b\Library.cpp(71,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Matt\Desktop\CppFiles\Project1-b\Library.cpp(83,20): warning C4018: '<': signed/unsigned mismatch
+﻿  Book.cpp
+  Library.cpp
+  PriorityQueue.cpp
+  Project1-b.cpp
+  Generating Code...
   Project1-b.vcxproj -> C:\Users\Matt\Desktop\CppFiles\Project1-b\Debug\Project1-b.exe

@@ -21,7 +21,7 @@ private:
 	Date startDate;
 	Date endDate;
 	bool archived;
-	PriorityQueue<Employee*> wa;
+	PriorityQueue<Employee> wa;
 	Date lastHeld;
 
 public:
@@ -38,7 +38,7 @@ public:
 	
 	void setstartDate(Date newDate);
 	
-	void populate_queue(vector<Employee*> empList);
+	void populate_queue(vector<Employee> empList);
 	void circulate(Date circ_date);
 	bool to_archive();
 	void pass(int days_passed);

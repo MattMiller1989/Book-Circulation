@@ -18,7 +18,11 @@ Book::Book(string bookName, Date start) {
 //implement getter and setters
 string Book::getname()
 {
-	return name;
+	
+	
+
+		return name;
+	
 }
 Date Book::getstartDate()
 {
@@ -41,12 +45,12 @@ void Book::setstartDate(Date newDate)
 
 
 //add vector to queue
-void Book::populate_queue( vector<Employee*> empList)
+void Book::populate_queue( vector<Employee> empList)
 {
-	vector<Employee*>::iterator it;
+	vector<Employee>::iterator it;
 	for (it = empList.begin(); it != empList.end(); ++it)
 	{
-		Employee* e = *it;
+		Employee e = *it;
 		wa.push(e);
 	}
 
@@ -59,17 +63,17 @@ bool Book::to_archive() {
 }
 void Book::circulate(Date circ_date) {
 	setstartDate(circ_date);
-	wa.front()->receive_book(0);
+	wa.front().receive_book(0);
 
 }
 
 void Book::pass(int days_passed) {
 	
 	wa.print_queue();
-	wa.front()->pass_book(days_passed);
+	wa.front().pass_book(days_passed);
 	wa.pop();
 	wa.update(); //updates the queue before passing book
-	wa.front()->receive_book(days_passed);
+	wa.front().receive_book(days_passed);
 
 
 

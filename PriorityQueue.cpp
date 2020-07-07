@@ -51,7 +51,7 @@ void PriorityQueue<type>::print_queue() { //Prints each item in the queue. For t
 	
 	cout << "HELLO!!!" << endl;
 	for (int x = 0; x < size; x++) {
-		cout <<x<< data[x]->to_string() << " ";
+		cout <<x<< data[x].to_string() << " ";
 	}
 	cout << "\n";
 }
