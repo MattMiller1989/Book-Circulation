@@ -64,7 +64,7 @@ type& PriorityQueue<type>::front() { //returns a pointer to the front of the pri
 template <typename type>
 void PriorityQueue<type>::print_queue() { //Prints each item in the queue. For testing purposes
 	
-	cout << "HELLO!!!" << endl;
+	
 	for (int x = 0; x < size; x++) {
 		cout <<x<< data[x].to_string() << " ";
 	}

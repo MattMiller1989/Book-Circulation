@@ -23,6 +23,7 @@ public:
 	void pass_on(string book_name, Date& pass_date);
 	
 	
+	
 	int find_archive(string& name);
 	int find_circ(string& name);
 	int books_size() {
@@ -31,4 +32,6 @@ public:
 	int archive_size() {
 		return archive.size();
 	};
+
+	//void print_employees();
 };

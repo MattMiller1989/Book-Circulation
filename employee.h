@@ -21,6 +21,9 @@ public:
 	void pass_book(int curr_retain);
 	friend bool operator<(Employee& lhs, Employee& rhs);
 	friend bool operator>(Employee& lhs, Employee& rhs);
+	
+	int get_wait_time();
+	int get_retain_time();
 
 	const string to_string() const { //toString method just for testing 
 		ostringstream buffer;

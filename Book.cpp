@@ -75,14 +75,15 @@ void Book::populate_queue( vector<Employee>& empList)
 bool Book::to_archive() {
 	/*Determines if the book needs to be archived by checking to see if the respective
 	priority queue is empty*/
-	return wa.empty();
+	cout << name << " " << wa.get_size()<<endl;
+	return wa.get_size()==1;
 }
 void Book::circulate(Date circ_date) {
 	
 	setstartDate(circ_date);
 	wa.front().receive_book(0,name);
 	wa.update(); //updates the queue before passing book
-	wa.pop();
+	//wa.pop();
 
 }
 

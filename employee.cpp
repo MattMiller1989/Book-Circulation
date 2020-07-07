@@ -27,9 +27,18 @@ int Employee::priority() {
 	
 }
 
+
 bool operator<(Employee& lhs, Employee& rhs) {
 	return lhs.priority() < rhs.priority();
 }
 bool operator>(Employee& lhs, Employee& rhs) {
 	return lhs.priority() > rhs.priority();
+}
+
+int Employee::get_wait_time() {
+	return wait_time;
+}
+int Employee::get_retain_time() {
+	return retain_time;
+
 }

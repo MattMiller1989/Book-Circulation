@@ -42,6 +42,7 @@ void Library::circulate_book(string book_name, Date& circ_date) {
 		
 
 	}
+	//print_employees();
 }
 void Library::pass_on(string book_name, Date& pass_date) {
 	
@@ -64,13 +65,14 @@ void Library::pass_on(string book_name, Date& pass_date) {
 		else{
 			
 			int days_passed = pass_date - books[ind].getstartDate();
-			cout << days_passed << endl;
+			//cout << days_passed << endl;
 			books[ind].pass(days_passed);
 			
 		}
 		
 
 	}
+	//print_employees();
 }
 
 int Library::find_archive(string& name) { // returns index of the book in circulation or archive
@@ -98,3 +100,13 @@ int Library::find_circ(string& name) { // returns index of the book in circulati
 
 	return loc;
 }
+
+//void Library::print_employees() {
+//	for (int x = 0; x < employees.size(); ++x) {
+//		Employee curr_employee = employees[x];
+//		cout << curr_employee.to_string();
+//		cout << " wait_time: " << curr_employee.get_wait_time();
+//		cout << " retain_time: " << curr_employee.get_retain_time();
+//		cout << " priority: " << curr_employee.priority() << endl;;
+//	}
+//}
