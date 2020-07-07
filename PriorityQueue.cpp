@@ -5,7 +5,7 @@ using namespace std;
 
 
 template <typename type>
-void PriorityQueue<type>::push(type element) {
+void PriorityQueue<type>::push(type& element) {
 	data.push_back(element);
 
 	

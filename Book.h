@@ -29,6 +29,7 @@ public:
 	
 	Book(string bookName);
 	Book(string bookName, Date start);
+	Book(const Book& other);
 	
 
 	string getname();
@@ -38,7 +39,7 @@ public:
 	
 	void setstartDate(Date newDate);
 	
-	void populate_queue(vector<Employee> empList);
+	void populate_queue(vector<Employee>& empList);
 	void circulate(Date circ_date);
 	bool to_archive();
 	void pass(int days_passed);

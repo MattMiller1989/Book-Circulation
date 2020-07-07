@@ -14,14 +14,24 @@ Book::Book(string bookName, Date start) {
 	startDate = start;
 }
 
+Book::Book(const Book& other) {
+
+	
+	name = other.name;
+	//startDate = other.startDate;
+	//endDate = other.endDate;
+	archived = other.archived;
+	wa = other.wa;
+	
+	
+	
+}
 
 //implement getter and setters
 string Book::getname()
 {
 	
-	
-
-		return name;
+	return name;
 	
 }
 Date Book::getstartDate()
@@ -45,13 +55,16 @@ void Book::setstartDate(Date newDate)
 
 
 //add vector to queue
-void Book::populate_queue( vector<Employee> empList)
+void Book::populate_queue( vector<Employee>& empList)
 {
+
 	vector<Employee>::iterator it;
 	for (it = empList.begin(); it != empList.end(); ++it)
 	{
 		Employee e = *it;
+		//cout << e.to_string()<<endl;
 		wa.push(e);
+		//cout << size() << endl;
 	}
 
 	

@@ -13,7 +13,7 @@ using namespace std;
 
 class Library {
 private:
-	vector<Book> new_books;
+	
 	vector<Book> books;
 	vector<Book> archive;
 	vector<Employee> employees;
@@ -23,9 +23,9 @@ public:
 	void add_book(string name);
 	void add_employee(string employee);
 	void circulate_book(string book_name, Date circ_date);
-	void pass_on(string& book_name, Date pass_date);
-	void add_new_book(string name);
-	void print_new_books();
+	void pass_on(string book_name, Date pass_date);
+	
+	
 	int find_archive(string& name);
 	int find_circ(string& name);
 	int books_size() {

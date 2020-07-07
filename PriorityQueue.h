@@ -18,8 +18,13 @@ public:
 		size = 0;
 
 	}
+
+	PriorityQueue(const PriorityQueue<type>& other) {
+		data = other.date;
+		size = other.size;
+	}
 	
-	void push(type element);
+	void push(type& element);
 	void pop();
 	void update();
 	type& front();
