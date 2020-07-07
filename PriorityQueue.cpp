@@ -6,17 +6,25 @@ using namespace std;
 
 template <typename type>
 void PriorityQueue<type>::push(type& element) {
+	
+	/*Pushes the element into the back of the data vector... 
+		It is unsorted at this point*/
+	
 	data.push_back(element);
 
 	
 	size += 1;
-	//cout << "size: " << size << endl;
+	
 
 }
 
 template <typename type>
 void PriorityQueue<type>::pop() {	//removes the first element in the queue... Also checks to see if Queue is empty
-	//print_queue();
+	
+	/*Pops the sorted element from the top of the queue
+	 It also checks to make sure that the queue is not empty
+	 before attempting to pop*/
+
 	if (!empty()){
 		data.erase(data.begin());
 		size-=1;
@@ -44,6 +52,11 @@ void PriorityQueue<type>::update() {		//sorts the items by a comparable value...
 }
 template <typename type>
 type& PriorityQueue<type>::front() { //returns a pointer to the front of the priority queue
+	
+	/*Returns a pointer to the front of the Priority Queue
+	this method does not sort or update the queue so it already assumes that 
+	the qeue had been updated*/
+	
 	if (!empty()) {
 		return data[0];
 	}
@@ -59,7 +72,7 @@ void PriorityQueue<type>::print_queue() { //Prints each item in the queue. For t
 }
 template <typename type>
 bool PriorityQueue<type>::empty() { //Checks to see if Pqueue is empty
-	//cout <<"size: "<< size << endl;
+	
 	return size == 0;
 }
 template <typename type>

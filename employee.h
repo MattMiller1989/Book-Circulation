@@ -17,15 +17,16 @@ public:
 	Employee(const Employee& other);
 	string get_name();
 	int priority();
-	void receive_book(int curr_wait);
+	void receive_book(int curr_wait,string name);
 	void pass_book(int curr_retain);
 	friend bool operator<(Employee& lhs, Employee& rhs);
 	friend bool operator>(Employee& lhs, Employee& rhs);
 
 	const string to_string() const { //toString method just for testing 
 		ostringstream buffer;
-		buffer << "Name: " << name << ", Priority: " <<wait_time-retain_time<< endl;
-		//return name +" "+ to_string(temp_priority); 
+		
+		buffer << name << " ";
+		 
 
 		return buffer.str();
 	}

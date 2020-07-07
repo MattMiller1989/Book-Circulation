@@ -14,12 +14,12 @@ Employee::Employee(const Employee& other) {
 string Employee::get_name() {
 	return name;
 }
-void Employee::receive_book(int curr_wait) {
-	cout << "wait " << curr_wait << endl;
+void Employee::receive_book(int curr_wait,string book_name) {
+	cout << name << " has received the book titled: " << book_name << endl;
 	wait_time += curr_wait;
 }
 void Employee::pass_book(int curr_retain) {
-	cout << "retain " << curr_retain << endl;
+	
 	retain_time += curr_retain;
 }
 int Employee::priority() {

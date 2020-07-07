@@ -53,22 +53,20 @@ void Library::pass_on(string book_name, Date& pass_date) {
 		
 		if (books[ind].to_archive()) {
 			
-			cout << "archive" << endl;
+			cout << books[ind].getname() << " has been moved to the archive" << endl;
 			archive.push_back(books[ind]);
 
 			
-			cout << books[ind].to_string() << endl;
+			
 
 			books.erase(books.begin()+ind);
 		}
 		else{
 			
-			//cout << pass_date.toString() << endl;
-			//cout << books[ind].getstartDate().toString() << endl;
-			cout << "pass" << endl;
-			cout << books[ind].size() << " " << books[ind].getstartDate().toString() << endl;
-			books[ind].pass(pass_date - books[ind].getstartDate());
-			cout << "dates working?" << endl;
+			int days_passed = pass_date - books[ind].getstartDate();
+			cout << days_passed << endl;
+			books[ind].pass(days_passed);
+			
 		}
 		
 

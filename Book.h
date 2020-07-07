@@ -49,7 +49,7 @@ public:
 	const string to_string() const { //toString method just for testing 
 		ostringstream buffer;
 		buffer << "Name: " << name<< endl;
-		//return name +" "+ to_string(temp_priority); 
+		
 
 		return buffer.str();
 	}
