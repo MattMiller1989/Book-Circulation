@@ -13,14 +13,7 @@ Book::Book(string bookName, Date start) {
 	name = bookName;
 	startDate = start;
 }
-/*
-Book::Book(const Book& other) {
-	name = other.name;
-	startDate = other.startDate;
-	endDate = other.endDate;
-	archived = other.archived;
-	wa = other.wa;
-}*/
+
 
 //implement getter and setters
 string Book::getname()
@@ -37,20 +30,7 @@ Date Book::getendDate()
 	return endDate;
 }
 
-bool Book::getarchived()
-{
-	return archived;
-}
 
-Date Book::getHeld()
-{
-	return lastHeld;
-}
-
-void Book::setname(string newName)
-{
-	name = newName;
-}
 
 // Implement start date is
 //also lastHeld for first pass_on()

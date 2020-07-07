@@ -35,13 +35,9 @@ public:
 	
 	Date getstartDate();
 	Date getendDate();
-	bool getarchived();
-	Date getHeld();
-	void setname(string newName);
+	
 	void setstartDate(Date newDate);
-	//void setendDate(Date newDate);
-	//void setarchived(bool newBool);
-	//void setHeld(Date date);
+	
 	void populate_queue(vector<Employee*> empList);
 	void circulate(Date circ_date);
 	bool to_archive();
