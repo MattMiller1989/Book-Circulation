@@ -20,7 +20,7 @@ public:
 	}
 
 	PriorityQueue(const PriorityQueue<type>& other) {
-		data = other.date;
+		data = other.data;
 		size = other.size;
 	}
 	

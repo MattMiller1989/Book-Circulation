@@ -28,7 +28,7 @@ public:
 
 	
 	Book(string bookName);
-	Book(string bookName, Date start);
+	
 	Book(const Book& other);
 	
 
@@ -37,7 +37,7 @@ public:
 	Date getstartDate();
 	Date getendDate();
 	
-	void setstartDate(Date newDate);
+	void setstartDate(Date& newDate);
 	
 	void populate_queue(vector<Employee>& empList);
 	void circulate(Date circ_date);

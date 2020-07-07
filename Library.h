@@ -22,8 +22,8 @@ private:
 public:
 	void add_book(string name);
 	void add_employee(string employee);
-	void circulate_book(string book_name, Date circ_date);
-	void pass_on(string book_name, Date pass_date);
+	void circulate_book(string book_name, Date& circ_date);
+	void pass_on(string book_name, Date& pass_date);
 	
 	
 	int find_archive(string& name);

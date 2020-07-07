@@ -44,7 +44,9 @@ void PriorityQueue<type>::update() {		//sorts the items by a comparable value...
 }
 template <typename type>
 type& PriorityQueue<type>::front() { //returns a pointer to the front of the priority queue
-	return data[0];
+	if (!empty()) {
+		return data[0];
+	}
 }
 template <typename type>
 void PriorityQueue<type>::print_queue() { //Prints each item in the queue. For testing purposes

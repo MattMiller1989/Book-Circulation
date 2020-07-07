@@ -1,2 +1,5 @@
-﻿  Library.cpp
+﻿  Book.cpp
+  Project1-b.cpp
+  Generating Code...
+C:\Users\Matt\Desktop\CppFiles\Project1-b\PriorityQueue.cpp(50): warning C4715: 'PriorityQueue<Employee>::front': not all control paths return a value
   Project1-b.vcxproj -> C:\Users\Matt\Desktop\CppFiles\Project1-b\Debug\Project1-b.exe

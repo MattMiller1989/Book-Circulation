@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <sstream>
+#include <iostream>
 using namespace std;
 
 class Employee {
@@ -8,12 +9,12 @@ private:
 	string name;
 	int wait_time;
 	int retain_time;
-	int temp_priority;
+	
 
 public:
 	
 	Employee(string new_name);
-	Employee(string new_name,int new_priority);
+	Employee(const Employee& other);
 	string get_name();
 	int priority();
 	void receive_book(int curr_wait);
@@ -23,7 +24,7 @@ public:
 
 	const string to_string() const { //toString method just for testing 
 		ostringstream buffer;
-		buffer << "Name: " << name << ", Priority: " << temp_priority << endl;
+		buffer << "Name: " << name << ", Priority: " <<wait_time-retain_time<< endl;
 		//return name +" "+ to_string(temp_priority); 
 
 		return buffer.str();
