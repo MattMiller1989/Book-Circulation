@@ -59,32 +59,22 @@ void Book::setstartDate(Date newDate)
 	startDate = lastHeld = newDate;
 }
 
-/*
-void Book::setendDate(Date newDate)
-{
-	endDate = newDate;
-}
 
-void Book::setarchived(bool newBool)
-{
-	archived = newBool;
-}
-
-void Book::setHeld(Date date)
-{
-	lastHeld = date;
-}
-*/
 //add vector to queue
-void Book::populate_queue( vector<Employee> empList)
+void Book::populate_queue( vector<Employee*> empList)
 {
-	vector<Employee>::const_iterator it;
-	for (it = empList.begin(); it != empList.end(); it++)
+	vector<Employee*>::iterator it;
+	for (it = empList.begin(); it != empList.end(); ++it)
 	{
-		wa.push(*it);
+		Employee* e = *it;
+		wa.push(e);
 	}
+
+	
 }
 bool Book::to_archive() {
+	//cout << "ARCHIVE??" << endl;
+	//cout << wa.size << endl;
 	return wa.empty();
 }
 void Book::circulate(Date circ_date) {
@@ -92,14 +82,21 @@ void Book::circulate(Date circ_date) {
 	wa.front()->receive_book(0);
 
 }
+
 void Book::pass(int days_passed) {
+	
+	wa.print_queue();
 	wa.front()->pass_book(days_passed);
 	wa.pop();
 	wa.update(); //updates the queue before passing book
 	wa.front()->receive_book(days_passed);
 
 
+
 	
+}
+int Book::size() {
+	return wa.get_size();
 }
 
 

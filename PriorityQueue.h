@@ -13,6 +13,7 @@ private:
 	
 public:
 	//PriorityQueue() {
+
 	PriorityQueue() {
 		size = 0;
 
@@ -21,9 +22,10 @@ public:
 	void push(type element);
 	void pop();
 	void update();
-	type* front();
+	type& front();
 	void print_queue();
 	bool empty();
+	int get_size();
 
 
 };

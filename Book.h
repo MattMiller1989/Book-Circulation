@@ -9,6 +9,7 @@
 #include <list>
 #include "Date.h"
 #include "employee.h"
+#include <sstream>
 using namespace std;
 
 //declare class Book
@@ -20,7 +21,7 @@ private:
 	Date startDate;
 	Date endDate;
 	bool archived;
-	PriorityQueue<Employee> wa;
+	PriorityQueue<Employee*> wa;
 	Date lastHeld;
 
 public:
@@ -31,7 +32,7 @@ public:
 	
 
 	string getname();
-
+	
 	Date getstartDate();
 	Date getendDate();
 	bool getarchived();
@@ -41,10 +42,20 @@ public:
 	//void setendDate(Date newDate);
 	//void setarchived(bool newBool);
 	//void setHeld(Date date);
-	void populate_queue(vector<Employee> empList);
+	void populate_queue(vector<Employee*> empList);
 	void circulate(Date circ_date);
 	bool to_archive();
 	void pass(int days_passed);
+	int size();
+
+
+	const string to_string() const { //toString method just for testing 
+		ostringstream buffer;
+		buffer << "Name: " << name<< endl;
+		//return name +" "+ to_string(temp_priority); 
+
+		return buffer.str();
+	}
 
 	
 
