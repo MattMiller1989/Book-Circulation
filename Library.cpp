@@ -18,7 +18,7 @@ void Library::add_book(string name) { // Creates a new book and adds it to the b
 
 }
 void Library::circulate_book(string book_name, Date& circ_date) { 
-
+	/*Starts the curcylation of the book*/
 	
 	int ind = find_archive(book_name);
 	
@@ -28,51 +28,49 @@ void Library::circulate_book(string book_name, Date& circ_date) {
 	else {
 		Book curr_book = archive[ind];
 		
-		curr_book.populate_queue(employees);
+		curr_book.populate_queue(employees);    //populates the priority queue
 		curr_book.circulate(circ_date);
 		
 		books.push_back(curr_book);
 		
-
-		archive.erase(archive.begin() + ind);
+		update_priorities(*(curr_book).get_current_employee()); 
+		/*^makes sure that any changes to the employees priority gets added to the global scopr*/
 		
-		
-
-		
-		
+		archive.erase(archive.begin() + ind); //removes the book from the arcvhive
+	
 
 	}
-	//print_employees();
+	
 }
 void Library::pass_on(string book_name, Date& pass_date) {
 	
-	int ind = find_circ(book_name);
+	int ind = find_circ(book_name); //returns the book object from the object in circulation
 	if (ind == -1) {
 		cout << book_name << " is not currently in circulation " << endl;
 	}
 	else {
 		
-		if (books[ind].to_archive()) {
+		if (books[ind].to_archive()) { //checks to see if the book needs to be archived
 			
 			cout << books[ind].getname() << " has been moved to the archive" << endl;
 			archive.push_back(books[ind]);
-
+			/*^ puts the book into the archive*/
 			
 			
 
-			books.erase(books.begin()+ind);
 		}
 		else{
 			
 			int days_passed = pass_date - books[ind].getstartDate();
-			//cout << days_passed << endl;
+			
 			books[ind].pass(days_passed);
 			
 		}
-		
+		update_priorities(*(books[ind]).get_current_employee());
+		/*^makes sure that any changes to the employees priority gets added to the global scopr*/
 
 	}
-	//print_employees();
+	
 }
 
 int Library::find_archive(string& name) { // returns index of the book in circulation or archive
@@ -100,13 +98,22 @@ int Library::find_circ(string& name) { // returns index of the book in circulati
 
 	return loc;
 }
+void Library::update_priorities(Employee& employee) {
+	/*Makes sure that the priority of the employees gets
+	updated outside of the scope of the local priority queue*/
 
-//void Library::print_employees() {
-//	for (int x = 0; x < employees.size(); ++x) {
-//		Employee curr_employee = employees[x];
-//		cout << curr_employee.to_string();
-//		cout << " wait_time: " << curr_employee.get_wait_time();
-//		cout << " retain_time: " << curr_employee.get_retain_time();
-//		cout << " priority: " << curr_employee.priority() << endl;;
-//	}
-//}
+	for (int x = 0; x < employees.size(); ++x) {  //Update method with O(n)
+		if (employees[x].get_name() == employee.get_name()) {
+			employees[x] = employee;
+		}
+	}
+}
+void Library::print_employees() {
+	/*This function is used to check and make sure that the priorities are 
+	being properly updated*/
+	for (int x = 0; x < employees.size(); ++x) {
+		Employee curr_employee = employees[x];
+		cout << curr_employee.to_string();
+		cout << " priority: " << curr_employee.priority() << endl;;
+	}
+}

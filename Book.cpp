@@ -4,6 +4,7 @@
 
 
 //parametrized constructor
+
 Book::Book(string bookName)
 {
 	name = bookName;
@@ -69,36 +70,44 @@ void Book::populate_queue( vector<Employee>& empList)
 		wa.push(e);
 		
 	}
-
+	wa.update(); 
+	
+	/*^this is the first update of the queue.. mainly meant for 
+	if a book has already been circulated. This accounts for the priority after
+	the first circvulation.*/
 	
 }
 bool Book::to_archive() {
 	/*Determines if the book needs to be archived by checking to see if the respective
 	priority queue is empty*/
-	cout << name << " " << wa.get_size()<<endl;
+	
 	return wa.get_size()==1;
 }
 void Book::circulate(Date circ_date) {
-	
+	wa.update(); //updates the queue before passing book
 	setstartDate(circ_date);
 	wa.front().receive_book(0,name);
-	wa.update(); //updates the queue before passing book
-	//wa.pop();
+
+	
+	
+	
 
 }
 
 void Book::pass(int days_passed) {
 	
-	//wa.print_queue();
+	
 	wa.front().pass_book(days_passed);
+	
 
 	cout <<  wa.front().get_name() << " has relinquished control of the book "<<name<<endl;
-
+	
 
 	wa.pop();
 	wa.update(); //updates the queue before passing book
+	
 	if (wa.get_size() > 0) {
-		//cout << wa.front().to_string() << endl;
+		
 		wa.front().receive_book(days_passed,name);
 	}
 	
@@ -111,6 +120,15 @@ void Book::pass(int days_passed) {
 }
 int Book::size() {
 	return wa.get_size();
+}
+
+Employee* Book::get_current_employee() {
+	if (!wa.empty()) {
+		return &wa.front();
+	}
+	else {
+		cout << "The book does not have an owner";
+	}
 }
 
 

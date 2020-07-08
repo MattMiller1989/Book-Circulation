@@ -33,5 +33,6 @@ public:
 		return archive.size();
 	};
 
-	//void print_employees();
+	void update_priorities(Employee& employee);
+	void print_employees();
 };

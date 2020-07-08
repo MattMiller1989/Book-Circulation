@@ -17,17 +17,20 @@ string Employee::get_name() {
 void Employee::receive_book(int curr_wait,string book_name) {
 	cout << name << " has received the book titled: " << book_name << endl;
 	wait_time += curr_wait;
+	
 }
 void Employee::pass_book(int curr_retain) {
 	
 	retain_time += curr_retain;
+	
 }
 int Employee::priority() {
 	return wait_time - retain_time;
 	
 }
 
-
+/*The following methods overload the comparator operators. 
+These methods use the priority value*/
 bool operator<(Employee& lhs, Employee& rhs) {
 	return lhs.priority() < rhs.priority();
 }

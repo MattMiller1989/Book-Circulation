@@ -6,14 +6,14 @@ template <typename type>
 class PriorityQueue {
 
 private:
-	std::vector<type> data;
+	
 	int size;
 	
 	
 	
 public:
 	//PriorityQueue() {
-
+	std::vector<type> data;
 	PriorityQueue() {
 		size = 0;
 
