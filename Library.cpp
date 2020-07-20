@@ -17,7 +17,7 @@ void Library::add_book(string name) { // Creates a new book and adds it to the b
 	
 
 }
-void Library::circulate_book(string book_name, Date& circ_date) { 
+void Library::circulate_book(string book_name, Date circ_date) { 
 	/*Starts the curcylation of the book*/
 	
 	int ind = find_archive(book_name);
@@ -42,7 +42,7 @@ void Library::circulate_book(string book_name, Date& circ_date) {
 	}
 	
 }
-void Library::pass_on(string book_name, Date& pass_date) {
+void Library::pass_on(string book_name, Date pass_date) {
 	
 	int ind = find_circ(book_name); //returns the book object from the object in circulation
 	if (ind == -1) {
@@ -114,6 +114,9 @@ void Library::print_employees() {
 	for (int x = 0; x < employees.size(); ++x) {
 		Employee curr_employee = employees[x];
 		cout << curr_employee.to_string();
-		cout << " priority: " << curr_employee.priority() << endl;;
+		//cout << " priority: " << curr_employee.priority() << endl;
+		cout << " wait: " << curr_employee.get_wait_time() <<" retain: "<<curr_employee.get_retain_time()<<" priority: "<<curr_employee.priority()<< endl;
 	}
+
+	cout << endl;
 }
