@@ -88,7 +88,7 @@ bool Book::to_archive() {
 void Book::circulate(Date circ_date) {
 	wa.update(); //updates the queue before passing book
 	setstartDate(circ_date);
-	wa.front().receive_book(0,name);
+	wa.front().receive_book(0,name,startDate);
 	current_employee = wa.front();
 
 	
@@ -97,22 +97,25 @@ void Book::circulate(Date circ_date) {
 
 }
 
-Employee Book::pass(int days_passed) {
+Employee Book::pass(int days_passed,bool archive=false) {
 	
 	//cout << wa.front().get_retain_time() << endl;
 	wa.front().pass_book(days_passed);
 	
 	Employee employee_passed = wa.front();
 	cout <<  wa.front().get_name() << " has relinquished control of the book "<<name<<endl;
+	current_employee = wa.front();
 	
-
-	wa.pop();
-	wa.update(); //updates the queue before passing book
-	
-	if (wa.get_size() > 0) {
+	if (!archive) {
 		
-		wa.front().receive_book(days_passed,name);
-		current_employee = wa.front();
+		wa.pop();
+		wa.update(); //updates the queue before passing book
+
+		if (wa.get_size() > 0) {
+
+			wa.front().receive_book(days_passed, name,startDate);
+			current_employee = wa.front();
+		}
 	}
 	
 	
@@ -127,19 +130,7 @@ int Book::size() {
 }
 
 Employee Book::get_current_employee() {
-	//if (!wa.empty()) {
-
-	//	//Employee curr_employee = wa.front();
-	//	cout << wa.front().get_retain_time() << endl;
-	//	return &wa.front();
-	//}
-	/*if (current_employee) {
-		return &current_employee;
-	}
-	else {
-		cout << "The book does not have an owner";
-	}*/
-
+	
 	return current_employee;
 
 }

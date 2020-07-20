@@ -46,6 +46,7 @@ void Library::circulate_book(string book_name, Date circ_date) {
 void Library::pass_on(string book_name, Date pass_date) {
 	
 	int ind = find_circ(book_name); //returns the book object from the object in circulation
+	int days_passed = pass_date - books[ind].getstartDate();
 	if (ind == -1) {
 		cout << book_name << " is not currently in circulation " << endl;
 	}
@@ -53,6 +54,8 @@ void Library::pass_on(string book_name, Date pass_date) {
 		
 		if (books[ind].to_archive()) { //checks to see if the book needs to be archived
 			
+			update_priorities(books[ind].pass(days_passed,true));
+
 			cout << books[ind].getname() << " has been moved to the archive" << endl;
 			archive.push_back(books[ind]);
 			/*^ puts the book into the archive*/
@@ -62,9 +65,9 @@ void Library::pass_on(string book_name, Date pass_date) {
 		}
 		else{
 			
-			int days_passed = pass_date - books[ind].getstartDate();
+			
 		
-			update_priorities(books[ind].pass(days_passed));
+			update_priorities(books[ind].pass(days_passed,false));
 			
 			
 		}

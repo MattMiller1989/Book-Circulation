@@ -9,19 +9,22 @@ Employee::Employee(const Employee& other) {
 	name = other.name;
 	wait_time = other.wait_time;
 	retain_time = other.retain_time;
+	wait_start = other.wait_start;
+	retain_start = other.retain_start;
 	
 }
 
 string Employee::get_name() {
 	return name;
 }
-void Employee::receive_book(int curr_wait,string book_name) {
+void Employee::receive_book(int curr_wait,string book_name,Date circ_date) {
+	wait_start = circ_date;
 	cout << name << " has received the book titled: " << book_name << endl;
 	wait_time += curr_wait;
 	
 }
 void Employee::pass_book(int curr_retain) {
-	
+	wait_start.add_days(curr_retain);
 	retain_time += curr_retain;
 	
 	

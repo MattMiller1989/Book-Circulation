@@ -1,2 +1,6 @@
-﻿  Project1-b.cpp
+﻿  Book.cpp
+  PriorityQueue.cpp
+  employee.cpp
+  Generating Code...
+C:\Users\Matt\Desktop\sum20\DataStructures\Book-Circulation\PriorityQueue.cpp(65): warning C4715: 'PriorityQueue<Employee>::front': not all control paths return a value
   Project1-b.vcxproj -> C:\Users\Matt\Desktop\sum20\DataStructures\Book-Circulation\Debug\Project1-b.exe

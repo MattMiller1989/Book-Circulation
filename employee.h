@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include "Date.h"
 using namespace std;
 
 class Employee {
@@ -9,6 +10,8 @@ private:
 	string name;
 	int wait_time;
 	int retain_time;
+	Date wait_start;
+	Date retain_start;
 	
 
 public:
@@ -17,8 +20,8 @@ public:
 	Employee(const Employee& other);
 	string get_name();
 	int priority();
-	void receive_book(int curr_wait,string name);
-	void pass_book(int curr_retain);
+	void receive_book(int curr_wait,string name,Date circ_date);
+	void pass_book(int days_passed);
 	friend bool operator<(Employee& lhs, Employee& rhs);
 	friend bool operator>(Employee& lhs, Employee& rhs);
 	

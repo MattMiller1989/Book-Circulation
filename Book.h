@@ -37,7 +37,7 @@ public:
 	void populate_queue(vector<Employee>& empList);
 	void circulate(Date circ_date);
 	bool to_archive();
-	Employee pass(int days_passed);
+	Employee pass(int days_passed,bool archive);
 	int size();
 
 	Employee get_current_employee();
