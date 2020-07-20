@@ -12,7 +12,6 @@ private:
 	
 
 public:
-	
 	Employee() {};
 	Employee(string new_name);
 	Employee(const Employee& other);

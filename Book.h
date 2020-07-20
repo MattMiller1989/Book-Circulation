@@ -23,7 +23,7 @@ private:
 	bool archived;
 	PriorityQueue<Employee> wa;
 	Date lastHeld;
-	//Employee* current_employee;
+	Employee current_employee;
 
 public:
 	Book();
@@ -37,10 +37,10 @@ public:
 	void populate_queue(vector<Employee>& empList);
 	void circulate(Date circ_date);
 	bool to_archive();
-	void pass(int days_passed);
+	Employee pass(int days_passed);
 	int size();
 
-	Employee* get_current_employee();
+	Employee get_current_employee();
 
 
 	

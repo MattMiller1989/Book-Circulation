@@ -9,6 +9,7 @@ Employee::Employee(const Employee& other) {
 	name = other.name;
 	wait_time = other.wait_time;
 	retain_time = other.retain_time;
+	
 }
 
 string Employee::get_name() {
@@ -22,6 +23,7 @@ void Employee::receive_book(int curr_wait,string book_name) {
 void Employee::pass_book(int curr_retain) {
 	
 	retain_time += curr_retain;
+	
 	
 }
 int Employee::priority() {

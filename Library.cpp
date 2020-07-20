@@ -32,8 +32,9 @@ void Library::circulate_book(string book_name, Date circ_date) {
 		curr_book.circulate(circ_date);
 		
 		books.push_back(curr_book);
+		Employee curr_employee = (curr_book).get_current_employee();
 		
-		update_priorities(*(curr_book).get_current_employee()); 
+		update_priorities(curr_employee); 
 		/*^makes sure that any changes to the employees priority gets added to the global scopr*/
 		
 		archive.erase(archive.begin() + ind); //removes the book from the arcvhive
@@ -62,11 +63,12 @@ void Library::pass_on(string book_name, Date pass_date) {
 		else{
 			
 			int days_passed = pass_date - books[ind].getstartDate();
+		
+			update_priorities(books[ind].pass(days_passed));
 			
-			books[ind].pass(days_passed);
 			
 		}
-		update_priorities(*(books[ind]).get_current_employee());
+		update_priorities((books[ind]).get_current_employee());
 		/*^makes sure that any changes to the employees priority gets added to the global scopr*/
 
 	}
@@ -104,6 +106,7 @@ void Library::update_priorities(Employee& employee) {
 
 	for (int x = 0; x < employees.size(); ++x) {  //Update method with O(n)
 		if (employees[x].get_name() == employee.get_name()) {
+			//cout << employee.get_retain_time() << " " << employees[x].get_retain_time() << endl;
 			employees[x] = employee;
 		}
 	}
@@ -111,6 +114,7 @@ void Library::update_priorities(Employee& employee) {
 void Library::print_employees() {
 	/*This function is used to check and make sure that the priorities are 
 	being properly updated*/
+	cout << endl;
 	for (int x = 0; x < employees.size(); ++x) {
 		Employee curr_employee = employees[x];
 		cout << curr_employee.to_string();

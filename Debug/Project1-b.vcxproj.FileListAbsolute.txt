@@ -1,2 +1,4 @@
 C:\Users\Matt\Desktop\CppFiles\Project1-b\Debug\Project1-b.exe
 C:\Users\Matt\Desktop\CppFiles\Project1-b\Debug\Project1-b.pdb
+C:\Users\Matt\Desktop\sum20\DataStructures\Book-Circulation\Debug\Project1-b.exe
+C:\Users\Matt\Desktop\sum20\DataStructures\Book-Circulation\Debug\Project1-b.pdb

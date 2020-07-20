@@ -1,8 +1,2 @@
-﻿  Book.cpp
-  Library.cpp
-C:\Users\Matt\Desktop\CppFiles\Project1-b\Library.cpp(107,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Matt\Desktop\CppFiles\Project1-b\Library.cpp(114,20): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-C:\Users\Matt\Desktop\CppFiles\Project1-b\Book.cpp(132): warning C4715: 'Book::get_current_employee': not all control paths return a value
-C:\Users\Matt\Desktop\CppFiles\Project1-b\PriorityQueue.cpp(63): warning C4715: 'PriorityQueue<Employee>::front': not all control paths return a value
-  Project1-b.vcxproj -> C:\Users\Matt\Desktop\CppFiles\Project1-b\Debug\Project1-b.exe
+﻿  Project1-b.cpp
+  Project1-b.vcxproj -> C:\Users\Matt\Desktop\sum20\DataStructures\Book-Circulation\Debug\Project1-b.exe

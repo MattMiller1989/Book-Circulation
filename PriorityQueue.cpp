@@ -9,6 +9,7 @@ void PriorityQueue<type>::push(type& element) {
 	
 	/*Pushes the element into the back of the data vector... 
 		It is unsorted at this point*/
+	//cout << "retain: " << element.get_retain_time() << endl;
 	
 	data.push_back(element);
 
@@ -58,6 +59,7 @@ type& PriorityQueue<type>::front() { //returns a pointer to the front of the pri
 	the qeue had been updated*/
 	
 	if (!empty()) {
+		//cout <<data[0].get_name()<<" retain "<< data[0].get_retain_time()<<endl;
 		return data[0];
 	}
 }
