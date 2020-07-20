@@ -7,7 +7,7 @@
 #include "PriorityQueue.h"
 #include "PriorityQueue.cpp"
 #include <list>
-#include "Date.h"
+
 #include "employee.h"
 #include <sstream>
 using namespace std;
@@ -37,7 +37,7 @@ public:
 	void populate_queue(vector<Employee>& empList);
 	void circulate(Date circ_date);
 	bool to_archive();
-	Employee pass(int days_passed,bool archive);
+	Employee pass(Date pass_date, int days_passed,bool archive);
 	int size();
 
 	Employee get_current_employee();

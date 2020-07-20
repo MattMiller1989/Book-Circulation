@@ -54,7 +54,7 @@ void Library::pass_on(string book_name, Date pass_date) {
 		
 		if (books[ind].to_archive()) { //checks to see if the book needs to be archived
 			
-			update_priorities(books[ind].pass(days_passed,true));
+			update_priorities(books[ind].pass(pass_date,days_passed,true));
 
 			cout << books[ind].getname() << " has been moved to the archive" << endl;
 			archive.push_back(books[ind]);
@@ -67,7 +67,7 @@ void Library::pass_on(string book_name, Date pass_date) {
 			
 			
 		
-			update_priorities(books[ind].pass(days_passed,false));
+			update_priorities(books[ind].pass(pass_date,days_passed,false));
 			
 			
 		}

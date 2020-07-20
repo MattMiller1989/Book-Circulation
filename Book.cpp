@@ -97,13 +97,13 @@ void Book::circulate(Date circ_date) {
 
 }
 
-Employee Book::pass(int days_passed,bool archive=false) {
+Employee Book::pass(Date pass_date,int days_passed,bool archive=false) {
 	
 	//cout << wa.front().get_retain_time() << endl;
-	wa.front().pass_book(days_passed);
+	wa.front().pass_book(days_passed,pass_date);
 	
 	Employee employee_passed = wa.front();
-	cout <<  wa.front().get_name() << " has relinquished control of the book "<<name<<endl;
+	cout <<  wa.front().get_name() << " has relinquished control of the book: "<<name<<" on: "<<pass_date.toString()<<endl;
 	current_employee = wa.front();
 	
 	if (!archive) {
@@ -113,7 +113,7 @@ Employee Book::pass(int days_passed,bool archive=false) {
 
 		if (wa.get_size() > 0) {
 
-			wa.front().receive_book(days_passed, name,startDate);
+			wa.front().receive_book(days_passed, name,pass_date);
 			current_employee = wa.front();
 		}
 	}

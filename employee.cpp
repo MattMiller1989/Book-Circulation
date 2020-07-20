@@ -11,6 +11,7 @@ Employee::Employee(const Employee& other) {
 	retain_time = other.retain_time;
 	wait_start = other.wait_start;
 	retain_start = other.retain_start;
+	first_book = other.first_book;
 	
 }
 
@@ -18,14 +19,22 @@ string Employee::get_name() {
 	return name;
 }
 void Employee::receive_book(int curr_wait,string book_name,Date circ_date) {
-	wait_start = circ_date;
-	cout << name << " has received the book titled: " << book_name << endl;
-	wait_time += curr_wait;
+
+	if (first_book) {
+		wait_time += curr_wait;
+		first_book = false;
+	}
+	else {
+		wait_time += circ_date - wait_start;
+	}
+	retain_start = circ_date;
+	cout << name << " has received the book titled: " << book_name <<" on: "<< circ_date.toString()<< endl;
+	
 	
 }
-void Employee::pass_book(int curr_retain) {
-	wait_start.add_days(curr_retain);
-	retain_time += curr_retain;
+void Employee::pass_book(int curr_retain,Date pass_date) {
+	wait_start = pass_date;
+	retain_time += pass_date-retain_start;
 	
 	
 }

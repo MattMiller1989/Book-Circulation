@@ -12,6 +12,7 @@ private:
 	int retain_time;
 	Date wait_start;
 	Date retain_start;
+	bool first_book = true;
 	
 
 public:
@@ -20,8 +21,8 @@ public:
 	Employee(const Employee& other);
 	string get_name();
 	int priority();
-	void receive_book(int curr_wait,string name,Date circ_date);
-	void pass_book(int days_passed);
+	void receive_book(int curr_wait,string name,Date rec_date);
+	void pass_book(int days_passed,Date pass_date);
 	friend bool operator<(Employee& lhs, Employee& rhs);
 	friend bool operator>(Employee& lhs, Employee& rhs);
 	
